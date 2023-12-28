@@ -1,5 +1,6 @@
 #include "PCBManager.h"
 #include "interface.hpp"
+#include "MemoryManager.h"
 #include <pthread.h>
 
 // 测试动态优先级算法的多线程函数
@@ -44,7 +45,21 @@ int main()
     // pcbm.CreateMultiQueue(6, "uyh", 100, 40);
     // pcbm.MultiLevelFeedbackQueue();
 
+    // Interface face;
+    // face.ProcessInterface();
+
+    // MemoryManager mm;
+    // mm.FixAreaAllocation();
+    // mm.FixAreaRelease();
+    // mm.FixAreaRelease();
+
+    // MemoryManager mm;
+    // mm.VariableAreaAllocation();
+    // mm.VariableAreaAllocation();
+    // mm.VariableAreaRelease();
+    // mm.VariableAreaRelease();
+
     Interface face;
-    face.ProcessInterface();
+    face.MemoryInterface();
 	return 0;
 }

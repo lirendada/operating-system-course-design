@@ -1,6 +1,6 @@
 TARGET=main
-OBJ=main.o PCBManager.o
-HEADERS=PCB.hpp PCBManager.h interface.hpp
+OBJ=main.o PCBManager.o MemoryManager.o
+HEADERS=PCB.hpp PCBManager.h interface.hpp MemoryManager.h FixedArea.hpp VariableArea.hpp Area.h
 $(TARGET) : $(OBJ)
 	g++ -o $@ $^ -std=c++11 -lpthread
 
