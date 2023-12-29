@@ -1,8 +1,9 @@
 #ifndef __MY_INTERFACE__
 #define __MY_INTERFACE__
-#include "PCBManager.h"
-#include "MemoryManager.h"
-#include "VirtualMemory.h"
+#include "./PCBManager/PCBManager.h"
+#include "./MemoryManager/MemoryManager.h"
+#include "./VirtualMemory/VirtualMemory.h"
+#include "./FileSystem/FileSystem.h"
 
 /*
     这个类提供多个管理系统的页面以及选择功能
@@ -10,6 +11,50 @@
 class Interface
 {
 public:
+    void Menu()
+    {
+        while(true)
+        {
+            MajorMenu();
+            cout << "输入想管理的模块>> ";
+            int option;
+            cin >> option;
+            
+            // 过滤掉非法选择
+            if(option == 0)
+            {
+                cout << "退出成功！！！" << endl;
+                break;
+            }
+            else if(option < 0 || option > 4)
+            {
+                cout << "输入错误或无效，请重新输入！！！" << endl;
+                continue;
+            }
+
+            // 判断处理
+            if(option == 1)
+                ProcessInterface();
+            else if(option == 2)
+                MemoryInterface();
+            else if(option == 3)
+                VirtualMemoryInterface();
+            else
+                FileSystemInterface();
+        }
+    }
+private:
+    // 总界面菜单
+    static void MajorMenu()
+    {
+        std::cout << "-----------------------------主菜单-----------------------------" << std::endl;
+        printf("| -_-选择对应的管理模块：                                      |\n");
+        printf("|       1. 进程管理模块          2. 存储器管理模块             |\n");
+        printf("|       3. 虚拟存储器管理模块    4. 文件管理模块               |\n");
+        printf("|       0. 退出                                                |\n");
+        std::cout << "----------------------------------------------------------------" << std::endl;
+    }
+
     // 进程管理模块界面
     void ProcessInterface()
     {
@@ -89,7 +134,7 @@ public:
     }
 
     // 进程管理模块菜单
-    static void ProcessMenu()
+    void ProcessMenu()
     {
         std::cout << "-----------------------进程管理模块主菜单-----------------------" << std::endl;
         printf("| -_-先进行对应数据插入，然后选择以下某种调度算法开始运行：    |\n");
@@ -183,7 +228,7 @@ public:
     }
 
     // 存储器管理模块主菜单
-    static void MemoryMenu()
+    void MemoryMenu()
     {
         std::cout << "----------------------存储器管理模块主菜单----------------------" << std::endl;
         printf("| -_-选择对应的分区模式：                                      |\n");
@@ -193,7 +238,7 @@ public:
     }
 
     // 存储器管理模块操作方式菜单
-    static void MemoryOperationMenu()
+    void MemoryOperationMenu()
     {
         std::cout << "---------------------存储器管理模块操作选择---------------------" << std::endl;
         printf("| -_-选择对应的操作：                                          |\n");
@@ -236,16 +281,57 @@ public:
     }
 
     // 虚拟存储器管理模块菜单
-    static void VirtualMemoryMenu()
+    void VirtualMemoryMenu()
     {
         std::cout << "---------------------虚拟存储器管理模块菜单---------------------" << std::endl;
         printf("| -_-选择对应的算法：                                          |\n");
         printf("|       1. 先进先出算法          2. 最佳页面置换算法           |\n");
-        printf("|       3. 最近最久未使用算法    0. 返回主菜单                 |\n");
+        printf("|       3. 最近最久未使用算法    0. 退出                       |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
 
-    
+    // 文件管理模块界面
+    void FileSystemInterface()
+    {
+        while(true)
+        {
+            FileSystemMenu();
+            cout << "输入需要的算法>> ";
+            int option;
+            cin >> option;
+            
+            // 过滤掉非法选择
+            if(option == 0)
+            {
+                cout << "退出成功！！！" << endl;
+                break;
+            }
+            else if(option < 0 || option > 3)
+            {
+                cout << "输入错误或无效，请重新输入！！！" << endl;
+                continue;
+            }
+
+            // 判断处理
+            FileSystem fs;
+            if(option == 1)
+                fs.FCFS();
+            else if(option == 2)
+                fs.SSTF();
+            else
+                fs.SCAN();
+        }
+    }
+
+    // 文件管理模块菜单
+    void FileSystemMenu()
+    {
+        std::cout << "------------------------文件管理模块菜单------------------------" << std::endl;
+        printf("| -_-选择对应的算法：                                          |\n");
+        printf("|       1. 先来先服务算法        2. 最短寻道优先算法           |\n");
+        printf("|       3. 电梯（扫描）算法      0. 退出                       |\n");
+        std::cout << "----------------------------------------------------------------" << std::endl;
+    }
 };
 
 #endif

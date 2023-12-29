@@ -5,8 +5,14 @@ VirtualMemory::VirtualMemory()
     // 从文件中读入页面序列
     char buffer[1024] = { 0 };
     std::ifstream in("./sequence.txt", std::ifstream::in);
+    if (!in.is_open()) 
+    {
+        std::cerr << "Failed to open file." << std::endl;
+        abort();
+    }
     in.getline(buffer, 1024);
     in.close();
+    std::cout << "文件中的页面序列读入成功！" << std::endl;
 
     // 将序列转化为整型放到数组中
     for(int i = 0; buffer[i] != '\0'; ++i)

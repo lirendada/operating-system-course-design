@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __PCB_HPP__
+#define __PCB_HPP__
 #include <iostream>
 #include <string>
 #include <time.h>
@@ -60,3 +61,5 @@ public:
     time_t _end_time;     // 结束运行时间
 	State _state;		  // 进程状态
 };
+
+#endif

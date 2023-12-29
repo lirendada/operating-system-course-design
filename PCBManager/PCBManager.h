@@ -1,4 +1,5 @@
-#pragma once
+#ifndef __PCBMANAGER_HPP__
+#define __PCBMANAGER_HPP__
 #include "PCB.hpp"
 #include <list>
 #include <vector>
@@ -35,3 +36,5 @@ private:
     std::vector<std::list<PCB*>> _multi_list; // 多级队列
     int process_num = 0;
 };
+
+#endif
