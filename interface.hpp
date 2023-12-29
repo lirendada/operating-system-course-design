@@ -2,6 +2,7 @@
 #define __MY_INTERFACE__
 #include "PCBManager.h"
 #include "MemoryManager.h"
+#include "VirtualMemory.h"
 
 /*
     这个类提供多个管理系统的页面以及选择功能
@@ -35,6 +36,8 @@ public:
                 cout << "多级反馈队列调度算法应该选择b选项进行插入，请重新输入！！！" << endl;
                 continue;
             }
+
+            PCBManager pcbm; // 进程模块管理对象
 
             // 先处理插入数据
             if(ins == 'a' || ins == 'b')
@@ -198,8 +201,51 @@ public:
         printf("|       0. 返回主菜单                                          |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-private:
-    PCBManager pcbm; // 进程模块管理对象
+
+    // 虚拟存储器管理模块界面
+    void VirtualMemoryInterface()
+    {
+        while(true)
+        {
+            VirtualMemoryMenu();
+            cout << "输入需要的算法>> ";
+            int option;
+            cin >> option;
+            
+            // 过滤掉非法选择
+            if(option == 0)
+            {
+                cout << "退出成功！！！" << endl;
+                break;
+            }
+            else if(option < 0 || option > 3)
+            {
+                cout << "输入错误或无效，请重新输入！！！" << endl;
+                continue;
+            }
+
+            // 判断处理
+            VirtualMemory vm;
+            if(option == 1)
+                vm.FIFO();
+            else if(option == 2)
+                vm.OPT();
+            else
+                vm.LRU();
+        }
+    }
+
+    // 虚拟存储器管理模块菜单
+    static void VirtualMemoryMenu()
+    {
+        std::cout << "---------------------虚拟存储器管理模块菜单---------------------" << std::endl;
+        printf("| -_-选择对应的算法：                                          |\n");
+        printf("|       1. 先进先出算法          2. 最佳页面置换算法           |\n");
+        printf("|       3. 最近最久未使用算法    0. 返回主菜单                 |\n");
+        std::cout << "----------------------------------------------------------------" << std::endl;
+    }
+
+    
 };
 
 #endif

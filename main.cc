@@ -1,6 +1,7 @@
 #include "PCBManager.h"
 #include "interface.hpp"
 #include "MemoryManager.h"
+#include "VirtualMemory.h"
 #include <pthread.h>
 
 // 测试动态优先级算法的多线程函数
@@ -59,7 +60,11 @@ int main()
     // mm.VariableAreaRelease();
     // mm.VariableAreaRelease();
 
-    Interface face;
-    face.MemoryInterface();
+    // Interface face;
+    // face.MemoryInterface();
+
+    Interface f;
+    f.VirtualMemoryInterface();
+    
 	return 0;
 }
