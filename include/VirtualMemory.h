@@ -19,7 +19,7 @@ public:
     void show_sequence();  // 打印页面序列
     void show_eliminate(std::vector<int>& eliminate, int sum, std::list<int>& queue); // 打印淘汰页面以及结果
     bool test_same_in_queue(std::list<int>& queue, int i, std::list<int>::iterator& out); // 检查是否当前队列中是否存在当前要调度的页面
-public:
+private:
     std::vector<int> _sequence;
 };
 

@@ -19,7 +19,7 @@ public:
     void FCFS(); // 先来先服务算法
     void SSTF(); // 最短寻道优先算法
     void SCAN(); // 电梯（扫描）算法
-public:
+private:
     std::vector<int> _sequence;
 };
 

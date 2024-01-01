@@ -11,7 +11,7 @@ public:
 
     void VariableAreaAllocation(); // 变长分区的分配算法：采用最优分配算法
     void VariableAreaRelease();    // 变长分区的释放算法
-public:
+private:
     FixedArea _fix;
     VariableArea _var;
 };

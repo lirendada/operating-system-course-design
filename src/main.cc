@@ -60,7 +60,7 @@ int main()
     // Interface face;
     // face.MemoryInterface();
 
-    Interface f;
-    f.Menu();
+    Interface* f = Interface::GetInstance();
+    f->Menu();
 	return 0;
 }

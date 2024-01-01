@@ -11,6 +11,13 @@
 class Interface
 {
 public:
+    // 获取单例对象
+    static Interface* GetInstance()
+    {
+        static Interface instance;
+        return &instance;
+    }
+
     void Menu()
     {
         while(true)
@@ -44,8 +51,15 @@ public:
         }
     }
 private:
+    Interface() = default;
+    Interface(const Interface&) = delete;
+    Interface& operator=(const Interface&) = delete;
+
+    static Interface* _instance; // 单例对象
+    static std::mutex _mtx;
+
     // 总界面菜单
-    static void MajorMenu()
+    void MajorMenu()
     {
         std::cout << "-----------------------------主菜单-----------------------------" << std::endl;
         printf("| -_-选择对应的管理模块：                                      |\n");
