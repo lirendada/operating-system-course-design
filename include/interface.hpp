@@ -1,10 +1,10 @@
 #ifndef __MY_INTERFACE__
 #define __MY_INTERFACE__
-#include "./PCBManager/PCBManager.h"
-#include "./MemoryManager/MemoryManager.h"
-#include "./VirtualMemory/VirtualMemory.h"
-#include "./FileSystem/FileSystem.h"
-
+#include "PCBManager.h"
+#include "MemoryManager.h"
+#include "VirtualMemory.h"
+#include "FileSystem.h"
+ 
 /*
     这个类提供多个管理系统的页面以及选择功能
 */

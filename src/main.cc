@@ -1,7 +1,3 @@
-#include "./PCBManager/PCBManager.h"
-#include "./MemoryManager/MemoryManager.h"
-#include "./VirtualMemory/VirtualMemory.h"
-#include "./FileSystem/FileSystem.h"
 #include "interface.hpp"
 #include <pthread.h>
 

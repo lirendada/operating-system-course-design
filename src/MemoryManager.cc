@@ -1,4 +1,4 @@
-#include "MemoryManager.h"
+#include "../include/MemoryManager.h"
 
 // 定长分区的分配算法
 void MemoryManager::FixAreaAllocation()

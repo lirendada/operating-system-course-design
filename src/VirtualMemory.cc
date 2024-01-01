@@ -1,4 +1,4 @@
-#include "VirtualMemory.h"
+#include "../include/VirtualMemory.h"
 
 VirtualMemory::VirtualMemory()
 {

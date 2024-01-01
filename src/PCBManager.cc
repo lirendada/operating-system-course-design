@@ -1,4 +1,4 @@
-#include "PCBManager.h"
+#include "../include/PCBManager.h"
 
 // 创建PCB
 void PCBManager::Create(uint16_t pid, std::string name, uint16_t priority, time_t left_time)
