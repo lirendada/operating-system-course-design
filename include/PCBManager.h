@@ -23,14 +23,17 @@ public:
         : _multi_list(multi_queue_num)
     {}
 
-    void Create(uint16_t pid, std::string name, uint16_t priority, time_t left_time); // 创建PCB
+    // 创建PCB
+    void Create(uint16_t pid, std::string name, uint16_t priority, time_t left_time); 
     void FCFS();                    // 先来先服务算法
     void SJF();                     // 短作业优先调度算法
     void StaticPriority();          // 静态优先级算法
     void DynamicPriority();         // 动态优先级算法
     void RR();                      // 轮转调度算法
+
+    // 创建多级队列中的PCB，其实就是换成插入到多级队列中
+    void CreateMultiQueue(uint16_t pid, std::string name, uint16_t priority, time_t left_time); 
     void MultiLevelFeedbackQueue(); // 多级反馈队列调度算法
-    void CreateMultiQueue(uint16_t pid, std::string name, uint16_t priority, time_t left_time); // 创建多级队列中的PCB，其实就是换成插入到多级队列中
 private:
 	std::list<PCB*> _list; // 存放PCB的队列
     std::vector<std::list<PCB*>> _multi_list; // 多级队列

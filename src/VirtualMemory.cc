@@ -4,7 +4,7 @@ VirtualMemory::VirtualMemory()
 {
     // 从文件中读入页面序列
     char buffer[1024] = { 0 };
-    std::ifstream in("./sequence.txt", std::ifstream::in);
+    std::ifstream in("/home/liren/operating-system-course-design/resources/sequence.txt", std::ifstream::in);
     if (!in.is_open()) 
     {
         std::cerr << "Failed to open file." << std::endl;

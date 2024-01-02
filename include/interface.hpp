@@ -18,6 +18,7 @@ public:
         return &instance;
     }
 
+    // 总界面函数
     void Menu()
     {
         while(true)
@@ -55,9 +56,6 @@ private:
     Interface(const Interface&) = delete;
     Interface& operator=(const Interface&) = delete;
 
-    static Interface* _instance; // 单例对象
-    static std::mutex _mtx;
-
     // 总界面菜单
     void MajorMenu()
     {
@@ -68,7 +66,6 @@ private:
         printf("|       0. 退出                                                |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-
     // 进程管理模块界面
     void ProcessInterface()
     {
@@ -146,7 +143,6 @@ private:
                 pcbm.MultiLevelFeedbackQueue();
         }
     }
-
     // 进程管理模块菜单
     void ProcessMenu()
     {
@@ -159,7 +155,6 @@ private:
         printf("|       0. 退出                                                |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-
     // 存储器管理模块界面
     void MemoryInterface()
     {
@@ -240,7 +235,6 @@ private:
             }
         }
     }
-
     // 存储器管理模块主菜单
     void MemoryMenu()
     {
@@ -250,7 +244,6 @@ private:
         printf("|       0. 退出                                                |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-
     // 存储器管理模块操作方式菜单
     void MemoryOperationMenu()
     {
@@ -260,7 +253,6 @@ private:
         printf("|       0. 返回主菜单                                          |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-
     // 虚拟存储器管理模块界面
     void VirtualMemoryInterface()
     {
@@ -293,7 +285,6 @@ private:
                 vm.LRU();
         }
     }
-
     // 虚拟存储器管理模块菜单
     void VirtualMemoryMenu()
     {
@@ -303,7 +294,6 @@ private:
         printf("|       3. 最近最久未使用算法    0. 退出                       |\n");
         std::cout << "----------------------------------------------------------------" << std::endl;
     }
-
     // 文件管理模块界面
     void FileSystemInterface()
     {
@@ -336,7 +326,6 @@ private:
                 fs.SCAN();
         }
     }
-
     // 文件管理模块菜单
     void FileSystemMenu()
     {

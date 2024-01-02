@@ -10,7 +10,6 @@ enum class State : char {
 	Run = 'R',
 	Finish = 'F'
 };
-
 class PCB
 {
 public:

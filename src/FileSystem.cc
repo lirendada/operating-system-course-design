@@ -2,7 +2,7 @@
 
 FileSystem::FileSystem()
 {
-    std::ifstream in("./filesequence.txt");
+    std::ifstream in("/home/liren/operating-system-course-design/resources/filesequence.txt");
     if (!in.is_open()) 
     {
         std::cerr << "Failed to open file." << std::endl;
@@ -127,9 +127,9 @@ void FileSystem::SCAN()
     int cur; // 当前指向的磁道
     std::cin >> cur;
     int n = _sequence.size();
-    std::vector<int> tmp(_sequence.begin(), _sequence.end()); // 复制一份数组，因为需要修改内容
     std::vector<int> ret; // 存放磁道服务顺序
     int sum = 0; // 移动总道数
+    std::vector<int> tmp(_sequence.begin(), _sequence.end()); // 复制一份数组，因为需要修改内容
 
     // 先对磁道号进行从小到大排序
     std::sort(tmp.begin(), tmp.end(), [&](int a, int b){
