@@ -51,18 +51,16 @@ int main()
     // mm.FixAreaRelease();
     // mm.FixAreaRelease();
 
-    MemoryManager mm;
-    mm.VariableAreaAllocation();
-    mm.VariableAreaAllocation();
-    mm.VariableAreaAllocation();
-    mm.VariableAreaRelease();
-    mm.VariableAreaRelease();
-    mm.VariableAreaRelease();
+    // MemoryManager mm;
+    // mm.VariableAreaAllocation();
+    // mm.VariableAreaAllocation();
+    // mm.VariableAreaRelease();
+    // mm.VariableAreaRelease();
 
     // Interface face;
     // face.MemoryInterface();
 
-    // Interface* f = Interface::GetInstance();
-    // f->Menu();
+    Interface* f = Interface::GetInstance();
+    f->Menu();
 	return 0;
 }
