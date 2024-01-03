@@ -116,6 +116,10 @@ void MemoryManager::VariableAreaAllocation()
             _var._free_variable_area[i]->_length -= size;
             if(_var._free_variable_area[i]->_length <= 0)
             {
+                newarea->_next = _var._free_variable_area[i]->_next;
+                if(_var._free_variable_area[i]->_next != nullptr)
+                    _var._free_variable_area[i]->_next->_prev = newarea;
+
                 // 如果长度变为小于0了，则删除原分区
                 _var._free_variable_area.erase(_var._free_variable_area.begin() + i);
                 delete _var._free_variable_area[i]; // 注意要释放内存，不然会内存泄漏
@@ -204,9 +208,10 @@ void MemoryManager::VariableAreaRelease()
             else if(next != nullptr)
             {
                 // 说明要与后面的分区合并：直接修改当前节点属性，然后释放next
-                cur->_id = next->_id;
                 cur->_length += next->_length;
                 cur->_next = next->_next;
+                if(next->_next != nullptr)
+                    next->_next->_prev = cur;
                 cur->_name.clear();
                 cur->_used = false; // 别忘了状态修改
                 _var._free_variable_area.push_back(cur);
