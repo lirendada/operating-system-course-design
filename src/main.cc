@@ -23,15 +23,18 @@ int main()
     // pcbm.Create(5, "jkl", 40, 67);
     // pcbm.Create(6, "uyh", 100, 40);
 
-    // // pthread_t pid = 1;
-    // // pthread_create(&pid, nullptr, testDynamicPriority, &pcbm);
+    // pthread_t pid = 1;
+    // pthread_create(&pid, nullptr, testDynamicPriority, &pcbm);
+
+    
+    //pcbm.DynamicPriority();
 
     // // pcbm.FCFS();
     // // pcbm.SJF();
     // // pcbm.StaticPriority();
     // // pcbm.DynamicPriority();
 
-    // // pthread_join(pid, nullptr);
+    // pthread_join(pid, nullptr);
 
     // pcbm.RR();
 
